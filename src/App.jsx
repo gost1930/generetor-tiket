@@ -2,74 +2,82 @@ import { useState } from "react";
 import html2canvas from "html2canvas";
 
 function App() {
-  // قائمة المنتجات
   const products = [
-  { name: "IZEM CANET 33CL", price: 90 },
-{ name: "OMO LIQUID MATIC 1L", price: 370 },
-{ name: "COUCHE CAN BÉBÉ N05", price: 250 },
-{ name: "THON ISABEL 3PES", price: 310 },
-{ name: "MARGARINE MANY  500G", price: 185 },
-{ name: "MAYOUNEZ LESIEUR 234", price: 210 },
-{ name: "TOUMATE CAB 800G", price: 310 },
-{ name: "TOUMATE IZDIHAR 400G", price: 185 },
-{ name: "MARGARINE DIMA 500G", price: 185 },
-{ name: "MARGARINE DIMA 250G", price: 110 },
-{ name: "MARGARINE SOL 500G", price: 180 },
-{ name: "NOULLES JUMBO", price: 50 },
-{ name: "NOULLES KAZAMI", price: 50 },
-{ name: "THON RICAMAR 3PES", price: 310 },
-{ name: "THON MARATUN 3PES", price: 310 },
-{ name: "SIDI SAADA CAMEMBRET", price: 380 },
-{ name: "TASSILI CAMEMEBRET", price: 360 },
-{ name: "FROMAGE TARTINO JUNIOR 16PES", price: 230 },
-{ name: "FROMAGE CHEZZY 16PES", price: 185 },
-{ name: "FROMAGE LA VACHE QUI RIT 24PES", price: 270 },
-{ name: "BIMO MACAO", price: 100 },
-{ name: "MAXON BISCUIT XL", price: 230 },
-{ name: "EAU LALA KHEDIDJA 1.5L", price: 45 },
-{ name: "EAU GUEDILA 1.5L", price: 45 },
-{ name: "HAMOUD SELECTO 2L", price: 140 },
-{ name: "JUS RAMY 1.25L", price: 135 },
-{ name: "JUS IFRUIT 1L", price: 110 },
-{ name: "SOUMMAME LBEN 1L", price: 145 },
-{ name: "HODNA LBEN 1L", price: 145 },
-{ name: "CANDIA LBEN 1L", price: 145 },
-{ name: "SOUMMAME LAIT 1L", price: 130 },
-{ name: "HODNA LAIT 1L", price: 110 },
-{ name: "CANDY CHOCO 1L ", price: 190 },
-{ name: "JAVEL LIFE 5L", price: 230 },
-{ name: "BINGO GEL MACHINE 1L ", price: 370 },
-{ name: "FORCE XPERSS LAVE SOL 1L", price: 175 },
-{ name: "BRILEX LAVE SOL 1L", price: 165 },
-{ name: "AMIR CEAN LAVE SOL 1L", price: 175 },
-{ name: "AIGLE LIQUIDE VAISSELLE 970ML", price: 170 },
-{ name: "ISIS SACHET 300G", price: 95 },
-{ name: "TEST JAVEL 1L", price: 80 },
-{ name: "CELIA DEVELOP 1 400G", price: 750 },
-{ name: "BLÉDILAIT NUTSI 1 400G", price: 720 },
-{ name: "COUCHE BIMBIES N03", price: 260 },
-{ name: "COUCHE MOLFIX N04", price: 260 },
-{ name: "SHAMPOOING VENUS 2EN1", price: 120 },
-{ name: "DÉODORANT CARE", price: 250 },
-{ name: "CHIPS MAHBOL", price: 60 },
-{ name: "JUS ROUIBA 1L", price: 110 },
-{ name: "CAFÉ MANY 250G", price: 380 },
-{ name: "EAU IFRI 1.5L", price: 45 },
-{ name: "COCA COLA 1.5L", price: 130 },
-{ name: "OMO LIQUID MATIC 2.5L", price: 810 },
-{ name: "YAOURT DANETTE MAXY", price: 55 },
-{ name: "CHOCOLAT MOMENT NOIR", price: 210 },
-{ name: "KOOL 4 WINNERS", price: 60 },
-{ name: "YAOURT SOUMMAM FORT", price: 25 }
+    { name: "IZEM CANET 33CL", price: 90 },
+    { name: "OMO LIQUID MATIC 1L", price: 370 },
+    { name: "COUCHE CAN BÉBÉ N05", price: 250 },
+    { name: "THON ISABEL 3PES", price: 310 },
+    { name: "MARGARINE MANY  500G", price: 185 },
+    { name: "MAYOUNEZ LESIEUR 234", price: 210 },
+    { name: "TOUMATE CAB 800G", price: 310 },
+    { name: "TOUMATE IZDIHAR 400G", price: 185 },
+    { name: "MARGARINE DIMA 500G", price: 185 },
+    { name: "MARGARINE DIMA 250G", price: 110 },
+    { name: "MARGARINE SOL 500G", price: 180 },
+    { name: "NOULLES JUMBO", price: 50 },
+    { name: "NOULLES KAZAMI", price: 50 },
+    { name: "THON RICAMAR 3PES", price: 310 },
+    { name: "THON MARATUN 3PES", price: 310 },
+    { name: "SIDI SAADA CAMEMBRET", price: 380 },
+    { name: "TASSILI CAMEMEBRET", price: 360 },
+    { name: "FROMAGE TARTINO JUNIOR 16PES", price: 230 },
+    { name: "FROMAGE CHEZZY 16PES", price: 185 },
+    { name: "FROMAGE LA VACHE QUI RIT 24PES", price: 270 },
+    { name: "BIMO MACAO", price: 100 },
+    { name: "MAXON BISCUIT XL", price: 230 },
+    { name: "EAU LALA KHEDIDJA 1.5L", price: 45 },
+    { name: "EAU GUEDILA 1.5L", price: 45 },
+    { name: "HAMOUD SELECTO 2L", price: 140 },
+    { name: "JUS RAMY 1.25L", price: 135 },
+    { name: "JUS IFRUIT 1L", price: 110 },
+    { name: "SOUMMAME LBEN 1L", price: 145 },
+    { name: "HODNA LBEN 1L", price: 145 },
+    { name: "CANDIA LBEN 1L", price: 145 },
+    { name: "SOUMMAME LAIT 1L", price: 130 },
+    { name: "HODNA LAIT 1L", price: 110 },
+    { name: "CANDY CHOCO 1L ", price: 190 },
+    { name: "JAVEL LIFE 5L", price: 230 },
+    { name: "BINGO GEL MACHINE 1L ", price: 370 },
+    { name: "FORCE XPERSS LAVE SOL 1L", price: 175 },
+    { name: "BRILEX LAVE SOL 1L", price: 165 },
+    { name: "AMIR CEAN LAVE SOL 1L", price: 175 },
+    { name: "AIGLE LIQUIDE VAISSELLE 970ML", price: 170 },
+    { name: "ISIS SACHET 300G", price: 95 },
+    { name: "TEST JAVEL 1L", price: 80 },
+    { name: "CELIA DEVELOP 1 400G", price: 750 },
+    { name: "BLÉDILAIT NUTSI 1 400G", price: 720 },
+    { name: "COUCHE BIMBIES N03", price: 260 },
+    { name: "COUCHE MOLFIX N04", price: 260 },
+    { name: "SHAMPOOING VENUS 2EN1", price: 120 },
+    { name: "DÉODORANT CARE", price: 250 },
+    { name: "CHIPS MAHBOL", price: 60 },
+    { name: "JUS ROUIBA 1L", price: 110 },
+    { name: "CAFÉ MANY 250G", price: 380 },
+    { name: "EAU IFRI 1.5L", price: 45 },
+    { name: "COCA COLA 1.5L", price: 130 },
+    { name: "OMO LIQUID MATIC 2.5L", price: 810 },
+    { name: "YAOURT DANETTE MAXY", price: 55 },
+    { name: "CHOCOLAT MOMENT NOIR", price: 210 },
+    { name: "KOOL 4 WINNERS", price: 60 },
+    { name: "YAOURT SOUMMAM FORT", price: 25 }
   ];
-
+  console.log(products.length);
   const [userName, setUserName] = useState("");
   const [logIn, setLogIn] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [selectedProducts, setSelectedProducts] = useState([]);
+  const [total, setTotal] = useState(0);
+  const [saleNumber, setSaleNumber] = useState(0);
+  const [date, setDate] = useState("");
+  const [mallName, setMallName] = useState("");
+  const [placeName, setPlaceName] = useState("");
+  const [cashierName, setCashierName] = useState("");
 
   // تحقق من تسجيل الدخول
   const isUserLoggedIn = () => {
-    if (userName === "mahboul") {
+    if (userName === "1") {
       setLogIn(true);
+      setCurrentIndex(0); // إعادة تعيين الفهرس عند تسجيل الدخول
     } else {
       alert("راك غالط ");
       setLogIn(false);
@@ -79,35 +87,29 @@ function App() {
   // دالة للحصول على كمية عشوائية
   const getRandomQuantity = () => Math.floor(Math.random() * 2) + 1;
 
-  const [selectedProducts, setSelectedProducts] = useState([]);
-  const [total, setTotal] = useState(0);
-  const [saleNumber, setSaleNumber] = useState(0);
-  const [date, setDate] = useState("");
-  const [mallName, setMallName] = useState("");
-  const [placeName, setPlaceName] = useState("");
-  const [cashierName, setCashierName] = useState("");
-
   // دالة توليد الفاتورة
   const generateInvoice = () => {
-    let productsCopy = [...products];
-    let newTotal = 0;
     let selected = [];
 
-    for (let i = 0; i < quantity; i++) {
-      const randomIndex = Math.floor(Math.random() * productsCopy.length);
-      const product = productsCopy[randomIndex];
-      const quantity = getRandomQuantity();
-      const totalPrice = product.price * quantity;
-      newTotal += totalPrice;
+    // تحديد المجموعة التالية من المنتجات
+    const endIndex = currentIndex + 13;
+    const productsToDisplay = products.slice(currentIndex, endIndex);
 
-      selected.push({ ...product, quantity, totalPrice });
-
-      // إزالة المنتج الذي تم اختياره من القائمة
-      productsCopy.splice(randomIndex, 1);
+    // تحقق من وجود منتجات لعرضها
+    if (productsToDisplay.length === 0) {
+      alert("لقد عرضت جميع المنتجات!");
+      return;
     }
 
+    productsToDisplay.forEach(product => {
+      const quantity = getRandomQuantity();
+      const totalPrice = product.price * quantity;
+      selected.push({ ...product, quantity, totalPrice });
+    });
+
     setSelectedProducts(selected);
-    setTotal(newTotal);
+    const totalPrice = selected.reduce((acc, product) => acc + product.totalPrice, 0);
+    setTotal(totalPrice);
 
     // توليد رقم عشوائي للفاتورة
     setSaleNumber(Math.floor(Math.random() * 1000000));
@@ -116,6 +118,9 @@ function App() {
     const now = new Date();
     const formattedDate = `Le : ${now.getDate()} oct. ${now.getFullYear()} à ${now.getHours()}:${now.getMinutes()}`;
     setDate(formattedDate);
+
+    // تحديث الفهرس للمنتجات التالية
+    setCurrentIndex(endIndex);
   };
 
   // دالة تحويل الفاتورة إلى صورة
@@ -127,10 +132,7 @@ function App() {
       link.download = `receipt_${saleNumber}.png`;
       link.click();
     });
-  };
-
-  const [quantity, setQuantity] = useState(5);
-
+  }
   return (
     <div className="flex flex-col justify-center items-center h-screen bg-gray-200">
       {logIn ? (
@@ -157,13 +159,7 @@ function App() {
               placeholder="اسم صاحب المبيعات"
               className="border p-2 rounded-lg w-full"
             />
-            <input
-              type="number"
-              value={quantity}
-              onChange={(e) => setQuantity(e.target.value)}
-              placeholder="اسم صاحب المبيعات"
-              className="border p-2 rounded-lg w-full"
-            />
+            
 
           </div>
 
