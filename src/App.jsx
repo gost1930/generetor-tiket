@@ -93,7 +93,7 @@ function App() {
     let newTotal = 0;
     let selected = [];
 
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < quantity; i++) {
       const randomIndex = Math.floor(Math.random() * productsCopy.length);
       const product = productsCopy[randomIndex];
       const quantity = getRandomQuantity();
@@ -129,6 +129,8 @@ function App() {
     });
   };
 
+  const [quantity, setQuantity] = useState(5);
+
   return (
     <div className="flex flex-col justify-center items-center h-screen bg-gray-200">
       {logIn ? (
@@ -155,6 +157,14 @@ function App() {
               placeholder="اسم صاحب المبيعات"
               className="border p-2 rounded-lg w-full"
             />
+            <input
+              type="number"
+              value={quantity}
+              onChange={(e) => setQuantity(e.target.value)}
+              placeholder="اسم صاحب المبيعات"
+              className="border p-2 rounded-lg w-full"
+            />
+
           </div>
 
           <div id="receipt" className="bg-white p-2 shadow-lg max-w-md w-[302px]">
