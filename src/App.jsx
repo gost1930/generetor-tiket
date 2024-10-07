@@ -34,8 +34,9 @@ function App() {
   const [total, setTotal] = useState(0);
   const [saleNumber, setSaleNumber] = useState(0);
   const [date, setDate] = useState("");
-  const [mallName, setMallName] = useState("SUPÉRETTE FATEH EL ATTAF JAMAA");
-  const [cashierName, setCashierName] = useState("JAMEL");
+  const [mallName, setMallName] = useState("");
+  const [placeName, setPlaceName] = useState("");
+  const [cashierName, setCashierName] = useState("");
 
   // دالة توليد الفاتورة
   const generateInvoice = () => {
@@ -88,21 +89,28 @@ function App() {
               type="text"
               value={mallName}
               onChange={(e) => setMallName(e.target.value)}
-              placeholder="Enter Mall Name"
+              placeholder="ادخل اسم صاحب المحل"
+              className="border p-2 mb-2 rounded-lg w-full"
+            />
+            <input
+              type="text"
+              value={placeName}
+              onChange={(e) => setPlaceName(e.target.value)}
+              placeholder="ادخل المنطقة"
               className="border p-2 mb-2 rounded-lg w-full"
             />
             <input
               type="text"
               value={cashierName}
               onChange={(e) => setCashierName(e.target.value)}
-              placeholder="Enter Cashier Name"
+              placeholder="اسم صاحب المبيعات"
               className="border p-2 rounded-lg w-full"
             />
           </div>
 
           <div id="receipt" className="bg-white p-2 shadow-lg max-w-md w-[302px]">
             <h2 className="text-center text-md font-bold mb-4 uppercase">
-              {`SUPÉRETTE ${mallName} EL ATTAF`}
+              {`SUPÉRETTE ${mallName} ${placeName}`}
             </h2>
             <div className="flex justify-between text-sm mb-4">
               <div>
